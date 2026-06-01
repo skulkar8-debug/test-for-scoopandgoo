@@ -161,13 +161,13 @@
 
         .btn-secondary {
             background: transparent;
-            color: var(--white);
-            border: 2px solid var(--white);
+            color: var(--primary-blue);
+            border: 2px solid var(--primary-blue);
         }
 
         .btn-secondary:hover {
-            background: var(--white);
-            color: var(--primary-blue);
+            background: var(--primary-blue);
+            color: var(--white);
         }
 
         .mobile-menu-btn {
@@ -243,7 +243,8 @@
             padding: 120px 5% 80px;
             position: relative;
             overflow: hidden;
-            background: var(--gradient-energy);
+            background: var(--light-gray);
+            color: var(--primary-blue);
         }
 
         .hero::before {
@@ -264,7 +265,8 @@
             left: 0;
             right: 0;
             height: 200px;
-            background: linear-gradient(to top, var(--primary-blue), transparent);
+            background: linear-gradient(to top, var(--white), transparent);
+            opacity: 0.6;
         }
 
         @keyframes pulse {
@@ -274,12 +276,14 @@
 
         .hero-wrapper {
             display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: space-between;
+            justify-content: center;
+            text-align: center;
             width: 100%;
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
-            gap: 3rem;
+            gap: 2rem;
             position: relative;
             z-index: 2;
         }
@@ -337,8 +341,9 @@
         .hero-tagline {
             font-size: 1.3rem;
             font-weight: 300;
-            color: rgba(255, 255, 255, 0.8);
-            margin-bottom: 2.5rem;
+            color: rgba(8, 0, 59, 0.75);
+            margin-bottom: 0;
+            max-width: 600px;
             line-height: 1.6;
         }
 
@@ -351,6 +356,95 @@
             display: flex;
             gap: 1rem;
             flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        /* Hero machine stage with floating feature badges */
+        .hero-machine-stage {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            gap: 1.5rem;
+            width: 100%;
+            margin: 0.5rem 0;
+        }
+
+        .badge-col {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            gap: 1.2rem;
+            min-height: 460px;
+        }
+
+        .badge-col-left {
+            align-items: flex-end;
+        }
+
+        .badge-col-right {
+            align-items: flex-start;
+        }
+
+        .feature-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            background: var(--white);
+            border: 1px solid rgba(8, 0, 59, 0.06);
+            border-radius: 16px;
+            padding: 0.7rem 1.1rem 0.7rem 0.7rem;
+            box-shadow: 0 14px 35px rgba(8, 0, 59, 0.12);
+            text-align: left;
+            transition: all 0.3s ease;
+            max-width: 230px;
+        }
+
+        .feature-badge:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 45px rgba(8, 0, 59, 0.18);
+        }
+
+        .badge-col-left .feature-badge:nth-child(2) {
+            transform: translateX(-14px);
+        }
+
+        .badge-col-right .feature-badge:nth-child(2) {
+            transform: translateX(14px);
+        }
+
+        .badge-col .feature-badge:nth-child(2):hover {
+            transform: translateY(-5px);
+        }
+
+        .fb-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            flex-shrink: 0;
+        }
+
+        .fb-icon.orange {
+            background: rgba(255, 127, 0, 0.12);
+        }
+
+        .fb-icon.navy {
+            background: rgba(8, 0, 59, 0.08);
+        }
+
+        .fb-text {
+            font-size: 0.92rem;
+            font-weight: 500;
+            color: var(--primary-blue);
+            line-height: 1.25;
+        }
+
+        .fb-text strong {
+            color: var(--accent-orange);
+            font-weight: 700;
         }
 
         .hero-visual {
@@ -877,7 +971,8 @@
 
         /* Why Section */
         .why-section {
-            background: var(--gradient-energy);
+            background: var(--white);
+            color: var(--primary-blue);
             position: relative;
             overflow: hidden;
         }
@@ -901,14 +996,14 @@
         }
 
         .benefit-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: var(--light-gray);
+            border: 1px solid rgba(8, 0, 59, 0.06);
             border-radius: 20px;
             padding: 2rem;
             transition: all 0.4s ease;
             position: relative;
             overflow: hidden;
+            box-shadow: 0 8px 28px rgba(8, 0, 59, 0.05);
         }
 
         .benefit-card::before {
@@ -923,9 +1018,10 @@
         }
 
         .benefit-card:hover {
-            background: rgba(255, 255, 255, 0.1);
+            background: var(--white);
             transform: translateY(-5px);
             border-color: rgba(255, 127, 0, 0.3);
+            box-shadow: 0 16px 40px rgba(8, 0, 59, 0.1);
         }
 
         .benefit-card:hover::before {
@@ -942,13 +1038,36 @@
             font-size: 1.4rem;
             letter-spacing: 2px;
             margin-bottom: 0.8rem;
-            color: var(--accent-orange);
+            color: var(--primary-blue);
         }
 
         .benefit-card p {
             font-size: 0.95rem;
             line-height: 1.6;
-            color: rgba(255, 255, 255, 0.8);
+            color: #555;
+        }
+
+        .benefit-stats {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1.2rem;
+        }
+
+        .benefit-pill {
+            display: inline-flex;
+            align-items: center;
+            background: var(--primary-blue);
+            color: var(--white);
+            padding: 0.35rem 0.9rem;
+            border-radius: 50px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+        }
+
+        .benefit-pill.orange {
+            background: var(--gradient-orange);
         }
 
         /* Flavors Section */
@@ -1673,6 +1792,14 @@
                 padding: 15px;
             }
 
+            .feature-badge {
+                max-width: 200px;
+            }
+
+            .badge-col {
+                min-height: 420px;
+            }
+
             .machine-screen {
                 height: 60px;
             }
@@ -1802,6 +1929,30 @@
             .spec-value {
                 font-size: 1.6rem;
             }
+
+            .hero-machine-stage {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+            }
+
+            .badge-col {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+                align-items: center;
+                min-height: auto;
+                gap: 0.8rem;
+            }
+
+            .feature-badge {
+                max-width: 260px;
+                padding: 0.6rem 0.9rem;
+            }
+
+            .badge-col-left .feature-badge:nth-child(2),
+            .badge-col-right .feature-badge:nth-child(2) {
+                transform: none;
+            }
         }
 
         /* Animations on scroll */
@@ -1922,26 +2073,26 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-wrapper">
-            <div class="hero-content">
-                <div class="hero-badge">
-                    <span class="dot"></span>
-                    Now Launching in Maharashtra
-                </div>
-                <h1>INSTANT RECOVERY<br><span>ZERO WAIT</span></h1>
-                <p class="hero-tagline">
-                    Fresh protein shakes from smart vending machines. 
-                    <strong>30 seconds</strong>. That's all it takes. 
-                    As quick as your neighborhood <strong>chai wala</strong>.
-                </p>
-                <div class="hero-ctas">
-                    <a href="#contact" class="btn btn-primary">
-                        🏢 Partner With Us
-                    </a>
-                    <a href="#how-it-works" class="btn btn-secondary">
-                        See How It Works
-                    </a>
-                </div>
+            <div class="hero-badge">
+                <span class="dot"></span>
+                Now Launching in Maharashtra
             </div>
+            <h1>INSTANT RECOVERY<br><span>ZERO WAIT</span></h1>
+            <div class="hero-machine-stage">
+                <div class="badge-col badge-col-left">
+                    <div class="feature-badge">
+                        <div class="fb-icon orange">🏋️</div>
+                        <div class="fb-text">Designed for <strong>Gyms</strong></div>
+                    </div>
+                    <div class="feature-badge">
+                        <div class="fb-icon navy">💰</div>
+                        <div class="fb-text"><strong>High-Margin</strong> Revenue</div>
+                    </div>
+                    <div class="feature-badge">
+                        <div class="fb-icon orange">❤️</div>
+                        <div class="fb-text">Loved by <strong>Members</strong></div>
+                    </div>
+                </div>
             <div class="hero-visual">
                 <div class="vending-machine">
                     <div class="machine-screen">
@@ -1975,6 +2126,30 @@
                     </div>
                     <div class="machine-status" id="machineStatus"></div>
                 </div>
+            </div>
+                <div class="badge-col badge-col-right">
+                    <div class="feature-badge">
+                        <div class="fb-icon navy">📱</div>
+                        <div class="fb-text">Cashless <strong>UPI</strong> Payments</div>
+                    </div>
+                    <div class="feature-badge">
+                        <div class="fb-icon orange">🧼</div>
+                        <div class="fb-text"><strong>Hygiene</strong> Certified</div>
+                    </div>
+                    <div class="feature-badge">
+                        <div class="fb-icon navy">⚡</div>
+                        <div class="fb-text">Fast <strong>Setup</strong> &amp; Support</div>
+                    </div>
+                </div>
+            </div>
+            <p class="hero-tagline">
+                Fresh protein shakes from smart vending machines.
+                <strong>30 seconds</strong>. That's all it takes.
+                As quick as your neighborhood <strong>chai wala</strong>.
+            </p>
+            <div class="hero-ctas">
+                <a href="#contact" class="btn btn-primary">🏢 Partner With Us</a>
+                <a href="#how-it-works" class="btn btn-secondary">See How It Works</a>
             </div>
         </div>
     </section>
@@ -2018,31 +2193,52 @@
                 <div class="benefit-icon">⚡</div>
                 <h3>LIGHTNING FAST</h3>
                 <p>30-second shakes. No waiting, no mixing, no mess. Faster than your pre-workout kicks in.</p>
+                <div class="benefit-stats">
+                    <span class="benefit-pill orange">⚡ 30 Seconds</span>
+                </div>
             </div>
             <div class="benefit-card animate-on-scroll">
                 <div class="benefit-icon">💰</div>
                 <h3>POCKET FRIENDLY</h3>
                 <p>Premium quality at street-food affordability. Your wallet will thank you.</p>
+                <div class="benefit-stats">
+                    <span class="benefit-pill">💸 Gym-Friendly Pricing</span>
+                </div>
             </div>
             <div class="benefit-card animate-on-scroll">
                 <div class="benefit-icon">🕐</div>
                 <h3>ALWAYS AVAILABLE</h3>
                 <p>Early morning cardio or midnight gains - we're always ready when you are.</p>
+                <div class="benefit-stats">
+                    <span class="benefit-pill orange">🕐 24/7</span>
+                </div>
             </div>
             <div class="benefit-card animate-on-scroll">
                 <div class="benefit-icon">🧼</div>
                 <h3>HYGIENE CERTIFIED</h3>
                 <p>Food-grade containers, filtered water, daily sanitization. As clean as maa ke haath ka khana.</p>
+                <div class="benefit-stats">
+                    <span class="benefit-pill">💧 RO Water</span>
+                    <span class="benefit-pill">🧼 Daily Clean</span>
+                </div>
             </div>
             <div class="benefit-card animate-on-scroll">
                 <div class="benefit-icon">📍</div>
                 <h3>RIGHT AT YOUR GYM</h3>
                 <p>No detours. No delays. Grab your shake exactly where you train.</p>
+                <div class="benefit-stats">
+                    <span class="benefit-pill orange">📍 On-Site</span>
+                </div>
             </div>
             <div class="benefit-card animate-on-scroll">
                 <div class="benefit-icon">🎯</div>
                 <h3>MULTIPLE OPTIONS</h3>
                 <p>Whey, plant-based, low-sugar - choose what fits your fitness journey.</p>
+                <div class="benefit-stats">
+                    <span class="benefit-pill">Whey</span>
+                    <span class="benefit-pill">Plant-Based</span>
+                    <span class="benefit-pill">Low-Sugar</span>
+                </div>
             </div>
         </div>
     </section>
