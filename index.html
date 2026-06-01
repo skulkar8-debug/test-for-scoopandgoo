@@ -1454,6 +1454,200 @@
             color: rgba(255, 255, 255, 0.5);
         }
 
+        /* Machine Specs Section */
+        .specs-section {
+            background: var(--gradient-energy);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .specs-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 50%, rgba(255, 127, 0, 0.06) 0%, transparent 60%);
+        }
+
+        .specs-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4rem;
+            max-width: 1100px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Machine outline diagram */
+        .specs-diagram {
+            position: relative;
+            flex-shrink: 0;
+            padding: 40px 70px 50px 20px;
+        }
+
+        .machine-outline {
+            width: 190px;
+            height: 270px;
+            border: 2px solid rgba(255, 255, 255, 0.35);
+            border-radius: 14px;
+            position: relative;
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .machine-outline::before {
+            content: '';
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            right: 16px;
+            height: 70px;
+            background: var(--gradient-orange);
+            border-radius: 8px;
+            opacity: 0.85;
+            box-shadow: 0 0 25px rgba(255, 127, 0, 0.4);
+        }
+
+        .machine-outline::after {
+            content: '';
+            position: absolute;
+            bottom: 18px;
+            left: 16px;
+            right: 16px;
+            height: 60px;
+            border: 2px solid rgba(255, 255, 255, 0.25);
+            border-radius: 8px;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        /* Height dimension line (right side) */
+        .dim-height {
+            position: absolute;
+            top: 40px;
+            right: 30px;
+            bottom: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .dim-height::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background: var(--accent-orange);
+        }
+
+        .dim-height span {
+            background: var(--primary-blue);
+            border: 1px solid var(--accent-orange);
+            color: var(--accent-orange);
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.2rem 0.5rem;
+            border-radius: 6px;
+            white-space: nowrap;
+            transform: rotate(0deg);
+        }
+
+        /* Width dimension line (bottom) */
+        .dim-width {
+            position: absolute;
+            left: 20px;
+            width: 190px;
+            bottom: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .dim-width::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: var(--accent-orange);
+        }
+
+        .dim-width span {
+            background: var(--primary-blue);
+            border: 1px solid var(--accent-orange);
+            color: var(--accent-orange);
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.2rem 0.5rem;
+            border-radius: 6px;
+            white-space: nowrap;
+        }
+
+        .specs-details {
+            max-width: 420px;
+        }
+
+        .specs-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .spec-stat {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 1.4rem 0.8rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .spec-stat:hover {
+            border-color: rgba(255, 127, 0, 0.4);
+            transform: translateY(-4px);
+        }
+
+        .spec-value {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2rem;
+            color: var(--accent-orange);
+            line-height: 1;
+        }
+
+        .spec-value small {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .spec-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: rgba(255, 255, 255, 0.7);
+            margin-top: 0.5rem;
+        }
+
+        .specs-note {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 1.2rem 1.5rem;
+            background: rgba(255, 127, 0, 0.1);
+            border-left: 4px solid var(--accent-orange);
+            border-radius: 12px;
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        .specs-note .icon {
+            font-size: 1.5rem;
+        }
+
         /* Mobile Responsive */
         @media (max-width: 1024px) {
             .hero-wrapper {
@@ -1596,9 +1790,17 @@
             .products-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
-            
+
             .product-card {
                 max-width: none;
+            }
+
+            .specs-wrapper {
+                gap: 2.5rem;
+            }
+
+            .spec-value {
+                font-size: 1.6rem;
             }
         }
 
@@ -1896,6 +2098,41 @@
                 <div class="hygiene-content">
                     <h4>REGULAR SERVICING</h4>
                     <p>Scheduled maintenance keeps machines in top condition.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Machine Specs -->
+    <section class="section specs-section" id="machine">
+        <div class="section-title">
+            <h2>MEET THE <span>MACHINE</span></h2>
+            <p>Compact footprint, big performance. Slots into just 3 sq ft of floor space.</p>
+        </div>
+        <div class="specs-wrapper">
+            <div class="specs-diagram">
+                <div class="machine-outline"></div>
+                <div class="dim-height"><span>1980 mm</span></div>
+                <div class="dim-width"><span>750 mm</span></div>
+            </div>
+            <div class="specs-details">
+                <div class="specs-stats">
+                    <div class="spec-stat">
+                        <div class="spec-value">1980<small> mm</small></div>
+                        <div class="spec-label">Height</div>
+                    </div>
+                    <div class="spec-stat">
+                        <div class="spec-value">750<small> mm</small></div>
+                        <div class="spec-label">Width</div>
+                    </div>
+                    <div class="spec-stat">
+                        <div class="spec-value">820<small> mm</small></div>
+                        <div class="spec-label">Depth</div>
+                    </div>
+                </div>
+                <div class="specs-note">
+                    <span class="icon">📐</span>
+                    <span>Designed to fit neatly near your reception or exit — no renovation, no clutter, just a clean compact unit.</span>
                 </div>
             </div>
         </div>
